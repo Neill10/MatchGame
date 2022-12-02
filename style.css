@@ -1,4 +1,16 @@
+h1{
+    text-align:center;
+}
+
 .displayGrid{
+    margin:10%;
     display: grid;
-    
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 0;
+}
+
+.picture{
+    background: red;
+    border: 1px solid black;
+    height: 200px;
 }
