@@ -15,6 +15,8 @@ function initialize(){
     p14 = document.getElementById("pic14");
     p15 = document.getElementById("pic15");
     p16 = document.getElementById("pic16");
+    displayScore = document.getElementById("displayScore");
+    displayCorrect = document.getElementById("displayCorrect");
     score = 0;
     flipCounter = 0;
     flipped = "";
@@ -33,7 +35,10 @@ function initialize(){
     }
 
 }
-
+function setScore(){
+    score++;
+    displayScore.innerHTML = "SCORE: " + score;
+}
 function hideAll(){
     for(var i = 0; i < block.length; i++){
         block[i].src = "/Assets/orange.jpg";
@@ -71,6 +76,10 @@ function shuffle(){
         //removes the index and updates the list length.
         array.splice(random,1);
     }
+    score = 0;
+    displayScore.innerHTML = "SCORE: " + score;
+    displayCorrect.innerHTML = "CORRECT/WRONG"
+    flipCounter = 0;
 
 }
 //reveals
@@ -79,7 +88,7 @@ function flip(card){
     {
         card.src = card.pic;
         flipCounter++;
-        score++;
+        setScore();
         if(flipCounter == 1)
         {
             flipped = card;
@@ -87,13 +96,15 @@ function flip(card){
         }
         else if(flipCounter == 2)
         {
-            card.flipped = true;    
-            console.log(correct(flipped,card));
+            card.flipped = true;
             if(!correct(flipped,card)){
-                window.setTimeout(hide2(card,flipped),1000);
+                //weird nuance to nest hide2 function inside an anonymous function
+                //due to how setTimeout works?
+                setTimeout(function(){hide2(card,flipped);}, 500);
                 card.flipped = false;
                 flipped.flipped = false;
             }
+            win();
             flipCounter = 0;
         }
     }
@@ -105,13 +116,26 @@ function flip(card){
 function correct(first, second){
     if(first.src == second.src)
     {
+        displayCorrect.innerHTML = "CORRECT";
         return true;
     }
     else{
+        displayCorrect.innerHTML = "WRONG";
         return false;
     }
 }
 
 function win(){
-    
+    var win = true;
+    for(var i = 0; i < block.length ; i++){
+        if(block[i].flipped == false)
+        {
+            win = false;
+            break;
+        }
+    }
+    if(win)
+    {
+        displayCorrect.innerHTML = "YOU MATCHED ALL THE CARDS!";
+    }
 }
