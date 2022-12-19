@@ -7,14 +7,16 @@ h1{
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(4,1fr);
     column-gap: 0;
-    row-gap: 0;
+    row-gap: 0; 
+    width: 600px;
+    margin-left:20%;
 }
 
 
 .picture{
     border: 1px solid black;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 

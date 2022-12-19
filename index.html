@@ -11,77 +11,30 @@
 <body onload="initialize();">
     <h1>Match Game</h1>
     <div class="displayGrid">
-        <img class="picture" id="pic1">
-        <img class="picture" id="pic2">
-        <img class="picture" id="pic3">
-        <img class="picture" id="pic4">
-        <img class="picture" id="pic5" >
-        <img class="picture" id="pic6" >
-        <img class="picture" id="pic7" >
-        <img class="picture" id="pic8" >
-        <img class="picture" id="pic9" >
-        <img class="picture" id="pic10">
-        <img class="picture" id="pic11">
-        <img class="picture" id="pic12">
-        <img class="picture" id="pic13">
-        <img class="picture" id="pic14">
-        <img class="picture" id="pic15">
-        <img class="picture" id="pic16">
-
-        <button onclick="shuffle()">Shuffle</button>
-        <!--
-        <div class="picture" id="pic1">
-            <img src="/Assets/sample image.jpg">
-        </div>
-        <div class="picture" id="pic2">
-            <img src="/Assets/sample image.jpg">
-        </div>
-        <div class="picture" id="pic3">
-            <img src="/Assets/sample image.jpg">
-        </div>
-        <div class="picture" id="pic4">
-            <img src="/Assets/sample image.jpg">
-        </div>
-        <div class="picture" id="pic5">
-            <img src="">
-        </div>
-        <div class="picture" id="pic6">
-            <img src="">
-        </div>
-        <div class="picture" id="pic7">
-            <img src="">
-        </div>
-        <div class="picture" id="pic8">
-            <img src="">
-        </div>
-        <div class="picture" id="pic9">
-            <img src="">
-        </div>
-        <div class="picture" id="pic10">
-            <img src="">
-        </div>
-        <div class="picture" id="pic11">
-            <img src="">
-        </div>
-        <div class="picture" id="pic12">
-            <img src="">
-        </div>
-        <div class="picture" id="pic13">
-            <img src="">
-        </div>
-        <div class="picture" id="pic14">
-            <img src="">
-        </div>
-        <div class="picture" id="pic15">
-            <img src="">
-        </div>
-        <div class="picture" id="pic16">
-            <img src="">
-        </div>
-        -->
+        <img class="picture" id="pic1" onclick ="flip(p1)">
+        <img class="picture" id="pic2" onclick ="flip(p2)">
+        <img class="picture" id="pic3" onclick ="flip(p3)">
+        <img class="picture" id="pic4" onclick ="flip(p4)">
+        <img class="picture" id="pic5" onclick ="flip(p5)">
+        <img class="picture" id="pic6" onclick ="flip(p6)">
+        <img class="picture" id="pic7" onclick ="flip(p7)">
+        <img class="picture" id="pic8" onclick ="flip(p8)">
+        <img class="picture" id="pic9" onclick ="flip(p9)">
+        <img class="picture" id="pic10"onclick ="flip(p10)">
+        <img class="picture" id="pic11"onclick ="flip(p11)">
+        <img class="picture" id="pic12"onclick ="flip(p12)">
+        <img class="picture" id="pic13"onclick ="flip(p13)">
+        <img class="picture" id="pic14"onclick ="flip(p14)">
+        <img class="picture" id="pic15"onclick ="flip(p15)">
+        <img class="picture" id="pic16"onclick ="flip(p16)">
     </div>
+    <div id="scoreDisplay">
+
+    </div>
+
     <div>
-        
+        <button onclick="shuffle()">Shuffle</button>
+        <button onclick="hideAll()">HIDE</button>
     </div>
 </body>
 </html>

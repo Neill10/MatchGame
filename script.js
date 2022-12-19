@@ -15,11 +15,14 @@ function initialize(){
     p14 = document.getElementById("pic14");
     p15 = document.getElementById("pic15");
     p16 = document.getElementById("pic16");
-    
+    score = 0;
+    flipCounter = 0;
+    flipped = "";
     block = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16]
     for (var i = 0 ; i < block.length ; i++)
     {
-        block[i].flipped = false;
+        //revealed
+        block[i].flipped = true;
         if (i >= 8)
         {
             block[i].src = "/Assets/" + (i - 7) + ".jpg";
@@ -31,34 +34,84 @@ function initialize(){
 
 }
 
-function change(picture){
-    searchPic = new Image(100,100);
-    searchPic.src = "";
-    document[picture].src = "";
-}
-/*
-    for ( var i = 0 ; i < block.length ; i++)
-    {
-        block[i].src = "background.jpg";
-        
+function hideAll(){
+    for(var i = 0; i < block.length; i++){
+        block[i].src = "/Assets/orange.jpg";
+        block[i].flipped = false;
     }
-    */
-function randomGenerator(){
-    var random = Math.floor((Math.random() * 8 + 1));
+}
+
+function hide(picture){
+    picture.src = "Assets/Orange.jpg";
+}
+
+function hide2(first,second){
+    hide(first);
+    hide(second);
+}
+
+function randomGenerator(min, max){
+    var random = Math.floor((Math.random() * max + min));
     return random;
 }
+
 function shuffle(){
+    //array represents the images that will be taken
     var array = ["1","2","3","4","5","6","7","8","1","2","3","4","5","6","7","8"];
-    console.log("--------------------");
-    for (var i = 0 ; i < 15 ; i++)
+    for (var i = 0 ; i < 16 ; i++)
     {
-        var random = randomGenerator();
-        while(array.splice[random,1] == -1){
-            random = randomGenerator();
-        }
-        block[i].src = "/Assets/" + random + ".jpg";
-        array.splice[random,1];
-        console.log(random);
+        //gets a random index from to take from array
+        var random = randomGenerator(0,array.length);
+        //assigns the element at the "random" index to block[i]'s image source
+        block[i].src = "/Assets/" + array[random] + ".jpg";
+        
+        //creates a variables to keep track of picture
+        block[i].pic = "/Assets/" + array[random] + ".jpg";
+
+        //removes the index and updates the list length.
+        array.splice(random,1);
     }
 
+}
+//reveals
+function flip(card){
+    if(card.flipped == false)
+    {
+        card.src = card.pic;
+        flipCounter++;
+        score++;
+        if(flipCounter == 1)
+        {
+            flipped = card;
+            card.flipped = true;
+        }
+        else if(flipCounter == 2)
+        {
+            card.flipped = true;    
+            console.log(correct(flipped,card));
+            if(!correct(flipped,card)){
+                window.setTimeout(hide2(card,flipped),1000);
+                card.flipped = false;
+                flipped.flipped = false;
+            }
+            flipCounter = 0;
+        }
+    }
+    else{
+        console.log("CARD ALREADY FLIPPED");
+    } 
+}
+
+function correct(first, second){
+    if(first.src == second.src)
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function win(){
+    
 }
