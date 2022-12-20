@@ -68,10 +68,10 @@ function shuffle(){
         //gets a random index from to take from array
         var random = randomGenerator(0,array.length);
         //assigns the element at the "random" index to block[i]'s image source
-        block[i].src = "/Assets/" + array[random] + ".jpg";
+        block[i].src = "Assets/" + array[random] + ".jpg";
         
         //creates a variables to keep track of picture
-        block[i].pic = "/Assets/" + array[random] + ".jpg";
+        block[i].pic = "Assets/" + array[random] + ".jpg";
 
         //removes the index and updates the list length.
         array.splice(random,1);
