@@ -27,10 +27,10 @@ function initialize(){
         block[i].flipped = true;
         if (i >= 8)
         {
-            block[i].src = "/Assets/" + (i - 7) + ".jpg";
+            block[i].src = "Assets/" + (i - 7) + ".jpg";
         }
         else{
-            block[i].src = "/Assets/" + (i + 1) + ".jpg";
+            block[i].src = "Assets/" + (i + 1) + ".jpg";
         }
     }
 
@@ -41,13 +41,13 @@ function setScore(){
 }
 function hideAll(){
     for(var i = 0; i < block.length; i++){
-        block[i].src = "/Assets/orange.jpg";
+        block[i].src = "Assets/orange.jpg";
         block[i].flipped = false;
     }
 }
 
 function hide(picture){
-    picture.src = "Assets/Orange.jpg";
+    picture.src = "Assets/orange.jpg";
 }
 
 function hide2(first,second){
