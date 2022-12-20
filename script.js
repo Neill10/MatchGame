@@ -100,7 +100,7 @@ function flip(card){
             if(!correct(flipped,card)){
                 //weird nuance to nest hide2 function inside an anonymous function
                 //due to how setTimeout works?
-                setTimeout(function(){hide2(card,flipped);}, 500);
+                setTimeout(function(){hide2(card,flipped);}, 200);
                 card.flipped = false;
                 flipped.flipped = false;
             }
